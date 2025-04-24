@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Envelope + Letter (Open/Close on Click)</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="floating-hearts"></div> <!-- Floating hearts background -->
+
+  <div class="container">
+    <div class="envelope-wrapper">
+      <div class="envelope">
+        <div class="letter">
+          <div class="text">
+            <span style="font-size: 3px; font-weight: bold;">My Babe</span>
+            <p style="font-size: 3px; margin-top: 3px;">
+              Happy 7th monthsary,
+Seven months may not seem like a long time to the world, but to me, it's been the most beautiful chapter of my life. Every moment, every laugh, every fight, every hug—we wrote it together, and I wouldn't trade a single second of it.
+I still remember the first time I held your hand... how my world slowed down and everything just made sense. Since then, you've become my calm in chaos, my warmth in the cold, and the one who knows how to hold all the broken parts of me with love.
+I know I’m not perfect. I make mistakes, I fall short—but I love you with everything I have, in all the ways I know how. Thank you for staying, for choosing me even when I don't make it easy.
+Sometimes I lie awake at night, just thinking of how lucky I am to be yours. And sometimes, I cry—not from sadness, but from overwhelming love, the kind that fills every corner of me and still spills over.
+You are my once-in-a-lifetime, my favorite hello and my hardest goodbye—even if it’s just for a day. I promise to love you harder every month, every moment, for as long as you’ll let me.
+
+Forever yours,
+Ry
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="heart"></div>
+    </div>
+  </div>
+
+  <script>
+    const envelope = document.querySelector('.envelope-wrapper');
+    envelope.addEventListener('click', () => {
+      envelope.classList.toggle('flap');
+    });
+
+    // Floating hearts animation
+    const heartContainer = document.querySelector('.floating-hearts');
+
+    function createFloatingHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('floating-heart');
+      heart.style.left = Math.random() * 100 + "%";
+      heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+      heartContainer.appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createFloatingHeart, 500);
+  </script>
+</body>
+</html>
